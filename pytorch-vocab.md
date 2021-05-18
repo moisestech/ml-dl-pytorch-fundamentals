@@ -151,3 +151,47 @@ ReLU is an activation function, which is zero when x &lt 0 and then linear with 
 is a (prize-winning) technique for dimensionality reduction that is particularly well suited for the visualization of high-dimensional datasets. The technique can be implemented via Barnes-Hut approximations, allowing it to be applied on large real-world datasets. We applied it on data sets with up to 30 million examples.
 
 ### YOLO (You Only Look Once)
+
+---
+
+## Vocabulary
+
+### CNNs with RGB Images of Different Sizes:
+
+- **Resizing**
+
+  - When working with images of different sizes, you must resize all the images to the same size so that they can be fed into a CNN.
+    Color Images: Computers interpret color images as 3D arrays.
+
+- **RGB Image**
+- Color image composed of 3 color channels: Red, Green, and Blue.
+  Convolutions: When working with RGB images we convolve each color channel with its own convolutional filter. Convolutions on each color channel are performed in the same way as with grayscale images, i.e. by performing element-wise multiplication of the convolutional filter (kernel) and a section of the input array. The result of each convolution is added up together with a bias value to get the convoluted output.
+
+- **Max Pooling**
+
+  - When working with RGB images we perform max pooling on each color channel using the same window size and stride. Max pooling on each color channel is performed in the same way as with grayscale images, i.e. by selecting the max value in each window.
+
+- **Validation Set**
+  - We use a validation set to check how the model is doing during the training phase. Validation sets can be used to perform Early Stopping to prevent overfitting and can also be used to help us compare different models and choose the best one.
+
+### Methods to Prevent Overfitting:
+
+- **Early Stopping**
+
+  - In this method, we track the loss on the validation set during the training phase and use it to determine when to stop training such that the model is accurate but not overfitting.
+
+- **Image Augmentation**
+
+  - Artificially boosting the number of images in our training set by applying random image transformations to the existing images in the training set.
+    Dropout: Removing a random selection of a fixed number of neurons in a neural network during training.
+
+- **Transfer Learning**
+
+  - A technique that reuses a model that was created by machine learning experts and that has already been trained on a large dataset. When performing transfer learning we must always change the last layer of the pre-trained model so that it has the same number of classes that we have in the dataset we are working with.
+
+- **Freezing Parameters**
+
+  - Setting the variables of a pre-trained model to non-trainable. By freezing the parameters, we will ensure that only the variables of the last classification layer get trained, while the variables from the other layers of the pre-trained model are kept the same.
+
+- **MobileNet**
+  - A state-of-the-art convolutional neural network developed by Google that uses a very efficient neural network architecture that minimizes the amount of memory and computational resources needed, while maintaining a high level of accuracy. MobileNet is ideal for mobile devices that have limited memory and computational resources.
